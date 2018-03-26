@@ -77,7 +77,7 @@ if explicitly_require_windows_gems
     gem "win32-process", "0.6.5",       :require => false
     gem "win32-security", "~> 0.1.2",   :require => false
     gem "win32-service", "0.7.2",       :require => false
-    gem "minitar", "0.5.4",             :require => false
+    gem "minitar", "0.6",             :require => false
     # If facterversion hasn't been specified and we are
     # looking for a Puppet Gem version less than 3.5.0, we
     # need to ensure we get a good Facter for Windows specs.
@@ -88,7 +88,7 @@ if explicitly_require_windows_gems
     gem "win32-process", "~> 0.6",      :require => false
     gem "win32-security", "~> 0.1",     :require => false
     gem "win32-service", "~> 0.7",      :require => false
-    gem "minitar", "~> 0.5.4",          :require => false
+    gem "minitar", "~> 0.6",          :require => false
   end
 
   gem "win32-dir", "~> 0.3",            :require => false
