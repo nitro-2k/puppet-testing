@@ -13,8 +13,8 @@ class windows_ad (
   ### part install AD
   $install                   = 'present',
   $installmanagementtools    = true,
-  $installsubfeatures        = false,
-  $restart                   = false,
+  $installsubfeatures        = true,
+  $restart                   = true,
   $installflag               = true,                 # Flag to bypass the install of AD if desired
 
   ### Part Configure AD - Global
