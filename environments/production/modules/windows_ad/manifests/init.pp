@@ -25,8 +25,8 @@ class windows_ad (
   $configureflag             = true,                 # Flag to bypass the configuration of AD if desired
 
   #level AD
-  $domainlevel               = '6',                   # Domain level {4 - Server 2008 R2 | 5 - Server 2012 | 6 - Server 2012 R2}
-  $forestlevel               = '6',                   # Domain level {4 - Server 2008 R2 | 5 - Server 2012 | 6 - Server 2012 R2}
+  $domainlevel               = '5',                   # Domain level {4 - Server 2008 R2 | 5 - Server 2012 | 6 - Server 2012 R2}
+  $forestlevel               = '5',                   # Domain level {4 - Server 2008 R2 | 5 - Server 2012 | 6 - Server 2012 R2}
 
   $installdns                = 'yes',                 # Add DNS Server Role
   $globalcatalog             = 'yes',                 # Add Global Catalog functionality
