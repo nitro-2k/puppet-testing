@@ -44,14 +44,14 @@ class windows_ad::install (
     if $restart { $restartbool = 'true' } else { $restartbool = 'false' }
     if $installsubfeatures { $subfeatures = '-IncludeAllSubFeature' }
 
-    if $::kernelversion =~ /^(6.1)/ and $installmanagementtools {
+    if $::kernelversion =~ /^(6\.1|10\.0)/ and $installmanagementtools {
       fail ('Windows 2012 or newer is required to use the installmanagementtools parameter')
     } elsif $installmanagementtools {
       $managementtools = '-IncludeManagementTools'
     }
 
     # Windows 2008 R2 and newer required http://technet.microsoft.com/en-us/library/ee662309.aspx
-    if $::kernelversion !~ /^(6\.1|6\.2|6\.3)/ { fail ("${module_name} requires Windows 2008 R2 or newer") }
+    if $::kernelversion !~ /^(6\.1|6\.2|6\.3|10\.0)/ { fail ("${module_name} requires Windows 2008 R2 or newer") }
 
     # from Windows 2012 'Add-WindowsFeature' has been replaced with 'Install-WindowsFeature' http://technet.microsoft.com/en-us/library/ee662309.aspx
     if ($ensure == 'present') {
