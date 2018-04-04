@@ -70,7 +70,7 @@ class windows_ad::conf_forest (
 
     # If the operating is server 2012 then run the appropriate powershell commands if not revert back to the cmd commands
     if ($ensure == 'present') {
-      if ($kernel_ver =~ /^6\.2|^6\.3/) {
+      if ($kernel_ver =~ /^6\.2|^6\.3|^10\.0/) {
         if ($installdns == 'yes'){
           # Deploy Server 2012 Active Directory
           exec { 'Config ADDS':
@@ -99,7 +99,7 @@ class windows_ad::conf_forest (
         }
       }
     }else{ #uninstall AD
-      if ($kernel_ver =~ /^6\.2|^6\.3/) {
+      if ($kernel_ver =~ /^6\.2|^6\.3|^10\.0/) {
         if($localadminpassword != ''){
           exec { 'Uninstall ADDS':
             command     => "Import-Module ADDSDeployment;Uninstall-ADDSDomainController -LocalAdministratorPassword (ConvertTo-SecureString \'${localadminpassword}\' -asplaintext -force) -Force:$${forcebool} -ForceRemoval:$${forceboolremoval} -DemoteOperationMasterRole:$${demoteoperationmasterrolebool} -SkipPreChecks",
