@@ -10,10 +10,10 @@ if ($DNSServers -eq $null -or $DNSServers -eq '') {
 
 Foreach ($adapter in (Get-NetAdapter -physical | where {$_.status -eq "Up"} | Get-DnsClientServerAddress | where {$_.AddressFamily -eq 2})) {
   #Loop through active adapters and check
-  Write-Debug "Checking Adapter $($adapter.InterfaceAlias):"
-  Write-Debug "   Current Settings = $($adapter.ServerAddresses -join ",")"
+  Write-Output "Checking Adapter $($adapter.InterfaceAlias):"
+  Write-Output "   Current Settings = $($adapter.ServerAddresses -join ",")"
   if ($($adapter.ServerAddresses -join ",") -ne $($DNSServers -join ",")) {
-      Write-Debug "   Setting DNS settings to $($DNSServers -join ",")"
+      Write-Output "   Setting DNS settings to $($DNSServers -join ",")"
       Set-DnsClientServerAddress -InterfaceAlias $($adapter.InterfaceAlias) -ServerAddresses $($DNSServers -join ",")
   }
 }

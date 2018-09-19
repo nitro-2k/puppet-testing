@@ -40,6 +40,7 @@ class nitroworld::dns (
       exec { 'Update DNS':
         command  => template('nitroworld/dns.ps1.erb'),
         provider => powershell,
+        logoutput => true,
       }
     }
   } elsif ($::operatingsystem == 'CentOS') {
