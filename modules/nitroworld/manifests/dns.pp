@@ -28,17 +28,17 @@ class nitroworld::dns (
   #validate_ip_address($dns2)
   #validate_bool($installflag)
 
-  if ($::operatingsystem = 'windows'){
+  if ($::operatingsystem == 'windows'){
     # Windows 2012 and newer required http://technet.microsoft.com/en-us/library/ee662309.aspx
     if $::kernelversion !~ /^(6\.2|6\.3|10\.0)/ { fail ("${module_name} requires Windows 2012 or newer") }
 
     if ($ensure == 'present') {
-      exec { "Update DNS":
+      exec { 'Update DNSr':
         command   => template("nitroworld/dns.ps1.erb"),
         provider  => powershell,
       }
     }
-  } elsif ($::operatingsystem = 'CentOS') {
+  } elsif ($::operatingsystem == 'CentOS') {
     #Write some Linux DNS stuff :)
 
   } else { fail ("${module_name} not supported on ${::operatingsystem}") }
