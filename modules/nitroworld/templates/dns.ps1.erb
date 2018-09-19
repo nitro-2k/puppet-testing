@@ -1,7 +1,7 @@
 ### Called by Puppet to check/set DNS on Windows Servers
 
 $DNSServers = '<%= @dnsservers %>'
-$DNSsearch = '<%= @dnssearch %>'
+$DNSSearch = '<%= @dnssearch %>'
 
 if ($DNSServers -eq $null -or $DNSServers -eq '') {
     Write-Error "DNS Servers not specified"
