@@ -38,8 +38,8 @@ class nitroworld::dns (
 
     if ($ensure == 'present') {
       exec { 'Update DNS':
-        command   => template("nitroworld/dns.ps1.erb"),
-        provider  => powershell,
+        command  => template('nitroworld/dns.ps1.erb'),
+        provider => powershell,
       }
     }
   } elsif ($::operatingsystem == 'CentOS') {
@@ -50,8 +50,8 @@ class nitroworld::dns (
     #}
 
     file { 'dnsclient_resolver_config_file':
-      ensure  => file
-      content => template('dnsclient/resolv.conf.erb'),
+      ensure  => file,
+      content => template('nitroworld/resolv.conf.erb'),
       path    => $resolver_config_file,
       owner   => $resolver_config_file_owner,
       group   => $resolver_config_file_group,
