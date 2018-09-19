@@ -19,10 +19,10 @@
 # Copyright 2018 Andrew Petrie.
 #
 class nitroworld::dns (
-    $ensure = 'present',
-    $dnsservers = undef,
+    $ensure = "present",
+    $dnsservers = "undef",
     $dnssearch                   = ['UNSET'],
-    $resolver_config_file        = '/etc/resolv-puppet.conf',
+    $resolver_config_file        = "/etc/resolv-puppet.conf",
     $resolver_config_file_owner  = 'root',
     $resolver_config_file_group  = 'root',
     $resolver_config_file_mode   = '0644',
