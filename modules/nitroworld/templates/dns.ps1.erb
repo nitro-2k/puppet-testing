@@ -1,6 +1,6 @@
 ### Called by Puppet to check/set DNS on Windows Servers
 
-$dnsserversERB = '<%= @dnsservers %>',
+$dnsserversERB = '<%= @dnsservers %>'
 $dnssearchERB = '<%= @dnssearch %>'
 
 if ($DNSServers -eq $null -or $DNSServers -eq '') {
